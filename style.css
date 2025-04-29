@@ -1,6 +1,7 @@
 html {
     overflow-y: scroll;
-    font-family: "Computer Modern Sans", sans-serif;
+    font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-weight: 300;
 }
 div.container {
     max-width: 550px;
@@ -16,11 +17,20 @@ div.picture-container {
     position: relative;
 }
 img {
-    max-width: 600px;
-    width:  100%;
+    max-width: 250px;
+}
+@media (max-width: 768px) {
+    img {
+        max-width: 200px;
+    }
 }
 a {
-    color: #de4e69;
+    color: #0000FF;
+    text-decoration: none;
+    transition: text-decoration 0.2s;
+}
+a:hover, a:active {
+    text-decoration: underline;
 }
 p.name {
     font-weight: 600;
@@ -43,4 +53,45 @@ p.nav {
 }
 div.separator {
     height: 1rem;
+}
+.intro p {
+    text-align: justify;
+}
+.papers-list {
+    margin: 0;
+    padding: 0;
+}
+.paper-item {
+    margin-bottom: 20px;
+    font-size: 1.04rem;
+}
+.paper-item a {
+    color: #0000FF;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 1.08rem;
+}
+.paper-item a:hover, .paper-item a:active {
+    text-decoration: underline;
+}
+.papers-title {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+.papers-block {
+    margin-top: 32px;
+}
+.papers-block.other-interest .papers-title .papers-list .paper-item {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+.other-interest-list {
+    margin: 0;
+    padding: 0;
+}
+.other-interest-item {
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+    line-height: 1.3;
 }

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Gallery</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        body {
+            background: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 4px;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+        .gallery-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 0;
+            display: block;
+        }
+        .gallery-header {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+        .gallery-title {
+            font-size: 1.1rem;
+            color: #222;
+            font-weight: 300;
+        }
+        .gallery-switch {
+            margin: 8px 0 16px 0;
+            font-size: 1rem;
+        }
+        .switch-link {
+            color: #4b4b9f;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 300;
+        }
+        .switch-link.active {
+            color: #000;
+            text-decoration: none;
+            font-weight: 300;
+        }
+        .gallery-scroll {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            gap: 32px;
+            padding: 0 0 12px 0;
+            width: 100vw;
+        }
+        .gallery-scroll .gallery-img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            aspect-ratio: auto;
+            object-fit: contain;
+            border-radius: 0;
+            margin: 0 auto 8px auto;
+            display: block;
+        }
+        .gallery-scroll .img-title {
+            text-align: center;
+            color: #222;
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-header">
+        <div class="gallery-title">Map Gallery</div>
+        <div class="gallery-switch">
+            <a href="#" id="switch-scroll" class="switch-link">Scroll</a> /
+            <a href="#" id="switch-grid" class="switch-link active">Grid</a>
+        </div>
+    </div>
+    <div class="gallery-grid">
+        <img class="gallery-img" src="/other/map/image/vn_contour.png" alt="Fansipan Height Contour Map">
+        <img class="gallery-img" src="/other/map/image/vn_topo.png" alt="Viet Nam Topographic Map">
+    </div>
+    <script>
+        const gridBtn = document.getElementById('switch-grid');
+        const scrollBtn = document.getElementById('switch-scroll');
+        const grid = document.querySelector('.gallery-grid');
+        // Tạo gallery-scroll clone từ gallery-grid
+        function toScroll() {
+            grid.style.display = 'none';
+            let scrollDiv = document.querySelector('.gallery-scroll');
+            if (!scrollDiv) {
+                scrollDiv = document.createElement('div');
+                scrollDiv.className = 'gallery-scroll';
+                grid.parentNode.insertBefore(scrollDiv, grid.nextSibling);
+                Array.from(grid.children).forEach((img, idx) => {
+                    const wrap = document.createElement('div');
+                    wrap.style.display = 'flex';
+                    wrap.style.flexDirection = 'column';
+                    wrap.style.alignItems = 'center';
+                    const clone = img.cloneNode(true);
+                    wrap.appendChild(clone);
+                    const title = document.createElement('div');
+                    title.className = 'img-title';
+                    title.innerText = 'Map ' + (idx+1);
+                    wrap.appendChild(title);
+                    scrollDiv.appendChild(wrap);
+                });
+            }
+            scrollDiv.style.display = 'flex';
+            gridBtn.classList.remove('active');
+            scrollBtn.classList.add('active');
+        }
+        function toGrid() {
+            grid.style.display = 'grid';
+            const scrollDiv = document.querySelector('.gallery-scroll');
+            if (scrollDiv) scrollDiv.style.display = 'none';
+            gridBtn.classList.add('active');
+            scrollBtn.classList.remove('active');
+        }
+        gridBtn.addEventListener('click', function(e) { e.preventDefault(); toGrid(); });
+        scrollBtn.addEventListener('click', function(e) { e.preventDefault(); toScroll(); });
+    </script>
+</body>
+</html> 
