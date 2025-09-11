@@ -1,6 +1,6 @@
 html {
     overflow-y: scroll;
-    font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
     font-weight: 300;
 }
 div.container {
@@ -70,14 +70,105 @@ div.separator {
     font-weight: normal;
     text-decoration: none;
     font-size: 1.08rem;
+    display: inline;
 }
 .paper-item a:hover, .paper-item a:active {
     text-decoration: underline;
 }
-.papers-title {
-    font-size: 1.5rem;
-    font-weight: normal;
-    margin-bottom: 12px;
+.paper-details {
+    margin-top: 4px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.journal {
+    font-weight: bold;
+}
+
+.project-org-link {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #222;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.project-org-link:hover {
+    text-decoration: underline;
+}
+
+.paper-details .project-item {
+    padding-left: 1.2rem;
+    position: relative;
+    margin: 0 0 0.3rem 0;
+    line-height: 1.5;
+}
+
+.paper-details .project-item::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    color: #555;
+    font-weight: bold;
+}
+
+.project-year {
+    font-weight: bold;
+}
+
+/* Abstract toggle UI */
+.abstract-row {
+    margin-top: 8px;
+}
+
+.abstract-toggle {
+    border: none;
+    padding: 0!important;
+    margin: 0;
+    font-family: inherit;
+    text-decoration: none;
+    background: transparent;
+    color: #000000;
+    line-height: 1.3;
+    cursor: pointer;
+    text-align: left;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 1.05rem;
+}
+
+.abstract-toggle:hover {
+    background: transparent;
+}
+
+.abstract-toggle:focus {
+    outline: 1px solid transparent;
+}
+
+.abstract-toggle:hover,
+.abstract-toggle:active {
+    text-decoration: underline;
+}
+
+.abstract-content {
+    margin-top: 8px;
+    padding-left: 0;
+    color: #222;
+    line-height: 1.6;
+    text-align: justify;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.4s ease-in-out, 
+                opacity 0.4s ease-in-out,
+                transform 0.4s ease-in-out;
+}
+.abstract-content.open {
+    opacity: 1;
+    transform: translateY(0);
 }
 .papers-block {
     margin-top: 32px;
@@ -248,7 +339,7 @@ div.separator {
 body {
     background: #fff;
     color: #222;
-    font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
     font-size: 1.08rem;
     margin: 0 0 0 10rem;
     padding: 0rem;
@@ -266,7 +357,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    max-width: 988px;
+    max-width: 1100px;
     margin: 0 auto 2rem auto;
     gap: 1.5rem;
     padding: 0 1rem;

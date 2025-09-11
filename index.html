@@ -8,13 +8,16 @@
         <meta name="author" content="Huy Le Vu">
         
         <title>Huy Le Vu - Economics Researcher</title>
+        
+        <!-- Favicon -->
+        <link rel="icon" type="image/jpeg" href="/avt.jpg">
                 
         <!-- Styles -->
         <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
 
 <body>
-\    <div class="main-wrapper">
+    <div class="main-wrapper">
         <div class="main-col">
             <div class="avatar-block">
                 <img src="/image/master.png" alt="Huy Le Vu" class="avatar-img">
@@ -22,32 +25,45 @@
             <p>Hello! I am a Research Assistant at DEPOCEN.</p>
             <p>I am on the applying process Master, Ph.D course for the spring 2026. My <a href="/research">research</a> focuses on the international trade and development in Vietnam.</p>
             <p>Previously, I studied Economics (International Business Economics) at Foreign Trade University.</p>
+            
+            <!-- Selected Paper -->
             <div class="papers-block">
-                <h2 class="papers-title">Work In Progress</h2>
+                <h2 class="papers-title">Selected Paper</h2>
                 <div class="papers-list">
+
+                    <!-- Covid 19 -->
                     <div class="paper-item">
-                        <a href="#">Firm performance and industrial accumulation: The role of Industrial Parks</a><br>
-                        <span class="coauthor">with Tham Do Thi Hong and Quoc Viet Nguyen<br>
-                        Conditionally accepted, <i>Thailand and The World Economy</i></span>
+                        <a href="https://www.emerald.com/jed/article-pdf/doi/10.1108/JED-08-2024-0302/10190713/jed-08-2024-0302en.pdf"> Measuring the impact of COVID-19 and government policy responses on trade flow: the case of ASEAN countries</a>
+                        <div class="paper-details">
+                            with Tuong Vy Phan and Quoc Viet Nguyen<br>
+                            <span class="journal">Journal of Economics and Development</span>, Forthcoming
+                        </div>
+                        <div class="abstract-row">
+                            <button type="button" class="abstract-toggle" aria-expanded="false">+ Abstract</button>
+                            <div class="abstract-content">
+                                <p>This paper aimsto quantify the impact of the COVID-19 pandemic on bilateral trade flows among 10 ASEAN countries from January 2020 to December 2022. It also evaluates the effectiveness of government policy responses and the moderating role of regional trade agreements (RTAs) in alleviating trade disruption</p>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <!-- Industrial Parks -->
                     <div class="paper-item">
-                        <a href="https://www.adb.org/sites/default/files/publication/990676/adbi-wp1474-rev.pdf">COVID-19 and Government Policy Responses on Trade Flow</a><br>
-                        <span class="coauthor">with Tuong Vy Phan and Quoc Viet Nguyen
-                            <br>Conditionally accepted, <i>Journal of Economics and Development</i>
-                        </span>
+                        <a href="https://drive.google.com/file/d/1N-kAYyX1EBgBzCO9MMCCaykYlMnBIanQ/view?usp=drive_link">Firm performance and industrial accumulation: The role of Industrial Parks</a>
+                        <div class="paper-details">
+                            with Tham Do Thi Hong and Quoc Viet Nguyen<br>
+                            <span class="journal">Thailand and The World Economy</span>, Conditionally accepted
+                        </div>
+                        <div class="abstract-row">
+                            <button type="button" class="abstract-toggle" aria-expanded="false">+ Abstract</button>
+                            <div class="abstract-content">
+                                <p>This research examines the impact of industrial agglomeration on the productivity of SMEs in Vietnam, using FE regression for panel data and the PSM method. The study utilizes data from the General Statistics Office of Vietnam (2016–2020) and the OECD's TiVA database. The findings highlight the positive effects of industrial parks on firm performance, particularly for medium-sized enterprises, export-oriented firms, and those integrated into global value chains. SMEs with strong international linkages benefit from improved access to modern production technologies, with FDI capital firms exhibiting the highest productivity gains. Furthermore, the performance of industrial parks exhibits significant geographical variation, with the Southern region demonstrating superior efficiency due to the concentration of large industrial clusters and advanced facilities. High-tech zones have emerged as key drivers of regional productivity, fostering industrialization and technological innovation. Policymakers should prioritize the expansion and modernization of industrial zones, promote trade liberalization, and support SMEs through targeted incentives while strengthening FDI linkages to drive sustainable industrial development.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="paper-item">
-                        <a href="#">Special Economic Zones, Air Pollution and Developement: 20 Years of Evidence from Vietnam</a><br>
-                        <span class="coauthor">with Tuong Vy Phan <br>
-                        Draft, <i></i></span>
-                    </div>
-                    <div class="paper-item">
-                    <a href="#">Superstar ESG firm in Vietnam: Does it really matter?</a><br>
-                    <span class="coauthor">with Vy Tuong Phan<br>
-                    Drafted <i></i></span>
-                  </div>
                 </div>
             </div>
+
+            <!-- Other interest -->
             <div class="papers-block other-interest">
                 <h2 class="papers-title">Other interest</h2>
                 <div class="other-interest-list">
@@ -75,5 +91,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+    (function() {
+        var toggles = document.querySelectorAll('.abstract-toggle');
+        for (var i = 0; i < toggles.length; i++) {
+            toggles[i].addEventListener('click', function() {
+                var row = this.closest('.abstract-row');
+                if (!row) return;
+                var content = row.querySelector('.abstract-content');
+                if (!content) return;
+                
+                var expanded = this.getAttribute('aria-expanded') === 'true';
+                
+                if (expanded) {
+                    this.textContent = '+ Abstract';
+                    this.setAttribute('aria-expanded', 'false');
+                    content.style.maxHeight = null;
+                    content.classList.remove('open');
+                } else {
+                    this.textContent = '− Abstract';
+                    this.setAttribute('aria-expanded', 'true');
+                    content.classList.add('open');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        }
+    })();
+    </script>
 </body>
 </html>
