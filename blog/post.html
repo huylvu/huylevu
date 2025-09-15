@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Post - Blog">
+        <title>Post</title>
+        <link rel="icon" type="image/jpeg" href="/avt.jpg">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    </head>
+    <body>
+        <div class="main-wrapper">
+            <div class="main-col">
+                <div class="papers-block">
+                    <div class="post-header">
+                        <h2 id="post-title" class="papers-title">Loading…</h2>
+                        <div id="post-meta" class="post-meta"></div>
+                    </div>
+                    <div id="post-content" class="post-content"></div>
+                    <div class="back-row">
+                        <a class="back-link" href="/blog/index.html">← Back to list</a>
+                        <a class="back-link" href="/">Back to homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        (function() {
+            function qs(name) {
+                var params = new URLSearchParams(window.location.search);
+                return params.get(name);
+            }
+            function escapeHTML(str) {
+                return (str || '').replace(/[&<>"']/g, function(m) {
+                    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'})[m];
+                });
+            }
+            function formatDate(iso) {
+                try {
+                    var d = new Date(iso);
+                    if (isNaN(d)) return iso;
+                    var day = String(d.getDate()).padStart(2, '0');
+                    var month = String(d.getMonth() + 1).padStart(2, '0');
+                    var year = d.getFullYear();
+                    return month + '/' + day + '/' + year;
+                } catch (e) { return iso; }
+            }
+            function estimateReadingTime(text) {
+                var words = (text || '').trim().split(/\s+/).filter(Boolean).length;
+                var minutes = Math.max(1, Math.round(words / 200));
+                return minutes + ' min read';
+            }
+            function stripFirstH1(html) {
+                var idxStart = html.indexOf('<h1');
+                if (idxStart === -1) return html;
+                var idxOpenEnd = html.indexOf('>', idxStart);
+                if (idxOpenEnd === -1) return html;
+                var idxClose = html.indexOf('</h1>', idxOpenEnd + 1);
+                if (idxClose === -1) return html;
+                return html.slice(0, idxStart) + html.slice(idxClose + 5);
+            }
+
+            var slug = qs('slug');
+            if (!slug) {
+                document.getElementById('post-title').textContent = 'Post not found';
+                document.getElementById('post-content').textContent = 'Missing slug parameter.';
+                return;
+            }
+
+            fetch('/blog/posts.json')
+                .then(function(r){ return r.json(); })
+                .then(function(posts){
+                    var post = Array.isArray(posts) ? posts.find(function(p){ return String(p.slug) === String(slug); }) : null;
+                    if (!post) {
+                        document.getElementById('post-title').textContent = 'Post not found';
+                        document.getElementById('post-content').textContent = 'This post does not exist or was removed.';
+                        return;
+                    }
+                    document.title = post.title + ' — Blog';
+                    document.getElementById('post-title').textContent = post.title;
+
+                    var titleMap = {
+                        'favourite-paper': 'Favourite paper',
+                        'tool': 'Tool',
+                        'economic': 'Economic',
+                        'tip': 'Tip',
+                        'econometric': 'Econometric'
+                    };
+                    var topic = post.topic ? '<span class="topic-badge">' + escapeHTML(titleMap[post.topic] || post.topic) + '</span>' : '';
+                    var reading = post.summary ? estimateReadingTime(post.summary) : '';
+                    var meta = topic + escapeHTML(formatDate(post.date)) + (reading ? ' <span class="dot"></span> ' + reading : '');
+                    document.getElementById('post-meta').innerHTML = meta;
+
+                    var path = post.path || ('/blog/posts/' + post.slug + '.md');
+                    return fetch(path).then(function(r){ return r.text(); }).then(function(md){ return { post: post, md: md }; });
+                })
+                .then(function(payload){
+                    if (!payload) return;
+                    var html = marked.parse(payload.md || '');
+                    html = stripFirstH1(html);
+                    document.getElementById('post-content').innerHTML = html;
+                })
+                .catch(function(){
+                    document.getElementById('post-title').textContent = 'Failed to load';
+                    document.getElementById('post-content').textContent = 'Please try again later.';
+                });
+        })();
+        </script>
+    </body>
+    </html>
+
+

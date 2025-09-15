@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="My Blog - Writing and Sharing">
+        <title>Huy Le Vu - Blog</title>
+        <link rel="icon" type="image/jpeg" href="/avt.jpg">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+    </head>
+    <body>
+        <div class="main-wrapper">
+            <div class="main-col">
+                <div class="papers-block">
+                    <p><a href="/">← Back to homepage</a></p>
+                    <h2 class="papers-title">My Blog</h2>
+                    <p>Notes, writing and sharing across topics: Favourite paper, Tool, Economic, Tip, Econometric.</p>
+                    <div id="filter-bar" class="filter-bar"></div>
+                    <div id="posts-list" class="blog-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        (function() {
+            function escapeHTML(str) {
+                return (str || '').replace(/[&<>"']/g, function(m) {
+                    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'})[m];
+                });
+            }
+            function formatDate(iso) {
+                try {
+                    var d = new Date(iso);
+                    if (isNaN(d)) return iso;
+                    var day = String(d.getDate()).padStart(2, '0');
+                    var month = String(d.getMonth() + 1).padStart(2, '0');
+                    var year = d.getFullYear();
+                    return month + '/' + day + '/' + year;
+                } catch (e) { return iso; }
+            }
+            function estimateReadingTime(text) {
+                var words = (text || '').trim().split(/\s+/).filter(Boolean).length;
+                var minutes = Math.max(1, Math.round(words / 200));
+                return minutes + ' min read';
+            }
+
+            var ORDER = ['favourite-paper', 'tool', 'economic', 'tip', 'econometric'];
+            var TITLE = {
+                'favourite-paper': 'Favourite paper',
+                'tool': 'Tool',
+                'economic': 'Economic',
+                'tip': 'Tip',
+                'econometric': 'Econometric'
+            };
+
+            function renderFilterBar(active) {
+                var bar = document.getElementById('filter-bar');
+                var allActive = active === 'all';
+                var html = '';
+                html += '<span class="filter-chip' + (allActive ? ' active' : '') + '" data-topic="all">All</span>';
+                for (var i = 0; i < ORDER.length; i++) {
+                    var k = ORDER[i];
+                    html += '<span class="filter-chip' + (active === k ? ' active' : '') + '" data-topic="' + k + '">' + TITLE[k] + '</span>';
+                }
+                bar.innerHTML = html;
+                bar.onclick = function(e) {
+                    var t = e.target;
+                    if (!t || !t.classList.contains('filter-chip')) return;
+                    var topic = t.getAttribute('data-topic');
+                    currentTopic = topic;
+                    renderPosts();
+                    renderFilterBar(currentTopic);
+                };
+            }
+
+            var POSTS = [];
+            var currentTopic = 'all';
+
+            function renderPosts() {
+                var container = document.getElementById('posts-list');
+                if (!Array.isArray(POSTS) || POSTS.length === 0) {
+                    container.innerHTML = '<p>No posts yet.</p>';
+                    return;
+                }
+                var groups = { };
+                for (var i = 0; i < POSTS.length; i++) {
+                    var p = POSTS[i];
+                    var key = p.topic || 'other';
+                    (groups[key] = groups[key] || []).push(p);
+                }
+                ORDER.forEach(function(k) { if (Array.isArray(groups[k])) groups[k].sort(function(a,b){return new Date(b.date)-new Date(a.date);}); });
+
+                var toRender = [];
+                if (currentTopic === 'all') {
+                    for (var oi = 0; oi < ORDER.length; oi++) {
+                        var k = ORDER[oi];
+                        var arr = groups[k] || [];
+                        toRender.push({ title: TITLE[k], posts: arr });
+                    }
+                } else {
+                    var arr2 = groups[currentTopic] || [];
+                    toRender.push({ title: TITLE[currentTopic] || currentTopic, posts: arr2 });
+                }
+
+                var html = '';
+                for (var gi = 0; gi < toRender.length; gi++) {
+                    var sec = toRender[gi];
+                    html += '<div class="papers-block">'
+                         +   '<h2 class="papers-title">' + escapeHTML(sec.title) + '</h2>';
+                    if (!sec.posts || sec.posts.length === 0) {
+                        html += '<div class="post-card"><div class="post-meta">No posts.</div></div>';
+                    } else {
+                        for (var j = 0; j < sec.posts.length; j++) {
+                            var p = sec.posts[j];
+                            var href = '/blog/post.html?slug=' + encodeURIComponent(p.slug);
+                            var topic = p.topic ? '<span class="topic-badge">' + escapeHTML(TITLE[p.topic] || p.topic) + '</span>' : '';
+                            var reading = p.summary ? estimateReadingTime(p.summary) : '';
+                            html += '<article class="post-card" style="position:relative">'
+                                 +   '<a class="card-link" href="' + href + '" aria-label="Open post"></a>'
+                                 +   '<h3 class="post-title">' + escapeHTML(p.title) + '</h3>'
+                                 +   '<div class="post-meta">' + topic + escapeHTML(formatDate(p.date)) + (reading ? ' <span class="dot"></span> ' + reading : '') + '</div>'
+                                 +   (p.summary ? '<p class="post-summary">' + escapeHTML(p.summary) + '</p>' : '')
+                                 + '</article>';
+                        }
+                    }
+                    html += '</div>';
+                }
+                container.innerHTML = html;
+            }
+
+            fetch('/blog/posts.json')
+                .then(function(r) { return r.json(); })
+                .then(function(posts) {
+                    POSTS = posts || [];
+                    renderFilterBar(currentTopic);
+                    renderPosts();
+                })
+                .catch(function() {
+                    var container = document.getElementById('posts-list');
+                    container.innerHTML = '<p>Failed to load posts.</p>';
+                });
+        })();
+        </script>
+    </body>
+    </html>
+
+
