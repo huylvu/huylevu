@@ -1,62 +1,35 @@
 [
   {
-    "slug": "favpaper-ricardo-comparative-advantage",
-    "title": "Ricardo and Comparative Advantage",
-    "date": "2025-09-10",
-    "summary": "Ricardian framework, specialization ranges, and policy implications.",
-    "tags": ["trade", "theory"],
+    "slug": "gvc_concept",
+    "title": "CONCEPTUAL ASPECTS OF GLOBAL VALUE CHAINS",
+    "date": "2025-01-09",
+    "summary": "GVC participation, Backward, Forward.",
+    "tags": ["trade", "GVC"],
     "topic": "favourite-paper",
-    "path": "/blog/posts/favpaper_ricardo_comp_adv.md"
-  },
-  {
-    "slug": "favpaper-gravity-model-trade",
-    "title": "The Gravity Model in Trade",
-    "date": "2025-09-09",
-    "summary": "AVW structural form, PPML, and evaluating RTAs/FTAs.",
-    "tags": ["trade", "gravity"],
-    "topic": "favourite-paper",
-    "path": "/blog/posts/favpaper_gravity_trade.md"
+    "path": "/blog/posts/gvc_concept.md"
   },
   {
     "slug": "tool-stata-workflow",
     "title": "A Lightweight Stata Workflow for Research",
-    "date": "2025-09-08",
+    "date": "2025-01-01",
     "summary": "Project structure, master do-file, logging and reproducibility.",
     "tags": ["stata", "workflow"],
     "topic": "tool",
     "path": "/blog/posts/tool_stata_workflow.md"
   },
   {
-    "slug": "tool-quarto-notebook",
-    "title": "Quarto Notebooks for Reproducible Research",
-    "date": "2025-09-07",
-    "summary": "Mix code and prose, YAML, chunk options, CI rendering.",
-    "tags": ["quarto", "reproducible"],
-    "topic": "tool",
-    "path": "/blog/posts/tool_quarto_notebook.md"
-  },
-  {
-    "slug": "economic-gdp-accounting-identity",
-    "title": "GDP: The Accounting Identity and Three Measures",
-    "date": "2025-09-06",
-    "summary": "Production, expenditure, and income approaches; measurement tweaks.",
-    "tags": ["macro", "gdp"],
+    "slug": "economic-course-notes-playlist",
+    "title": "Course Notes — Principles of Microeconomics, Fall 2023 (MIT)",
+    "date": "2025-01-16",
+    "summary": "Structured notes by lecture from the playlist; updated progressively.",
+    "tags": ["course", "notes"],
     "topic": "economic",
-    "path": "/blog/posts/econ_gdp_identity.md"
-  },
-  {
-    "slug": "economic-trade-policy-rta",
-    "title": "Trade Policy and RTAs",
-    "date": "2025-09-05",
-    "summary": "Trade creation vs diversion and gravity-based evaluation.",
-    "tags": ["policy", "trade"],
-    "topic": "economic",
-    "path": "/blog/posts/econ_trade_policy_rta.md"
+    "path": "/blog/posts/economic_course_notes_playlist.md"
   },
   {
     "slug": "tip-markdown-shortcuts",
     "title": "Handy Markdown Shortcuts for Faster Writing",
-    "date": "2025-09-04",
+    "date": "2025-01-04",
     "summary": "Quick separators, callouts, fenced code, and list shortcuts.",
     "tags": ["tip", "writing"],
     "topic": "tip",
@@ -65,20 +38,11 @@
   {
     "slug": "econometric-specification-notes",
     "title": "Econometric Specification Notes: Identification and Robustness",
-    "date": "2025-09-03",
+    "date": "2025-01-16",
     "summary": "Checklist for credible identification, robust inference, and clear reporting.",
     "tags": ["econometric", "methods"],
     "topic": "econometric",
     "path": "/blog/posts/econometric_spec_notes.md"
-  },
-  {
-    "slug": "economic-course-notes-playlist",
-    "title": "Course Notes — YouTube Playlist (Economics)",
-    "date": "2025-09-02",
-    "summary": "Structured notes by lecture from the playlist; updated progressively.",
-    "tags": ["course", "notes"],
-    "topic": "economic",
-    "path": "/blog/posts/economic_course_notes_playlist.md"
   }
 ]
 

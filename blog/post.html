@@ -44,7 +44,7 @@
                     var day = String(d.getDate()).padStart(2, '0');
                     var month = String(d.getMonth() + 1).padStart(2, '0');
                     var year = d.getFullYear();
-                    return month + '/' + day + '/' + year;
+                    return day + '/' + month + '/' + year;
                 } catch (e) { return iso; }
             }
             function estimateReadingTime(text) {
@@ -88,11 +88,7 @@
                         'tip': 'Tip',
                         'econometric': 'Econometric'
                     };
-                    var topic = post.topic ? '<span class="topic-badge">' + escapeHTML(titleMap[post.topic] || post.topic) + '</span>' : '';
-                    var reading = post.summary ? estimateReadingTime(post.summary) : '';
-                    var meta = topic + escapeHTML(formatDate(post.date)) + (reading ? ' <span class="dot"></span> ' + reading : '');
-                    document.getElementById('post-meta').innerHTML = meta;
-
+                    // Defer meta render until we fetch full content to compute accurate reading time
                     var path = post.path || ('/blog/posts/' + post.slug + '.md');
                     return fetch(path).then(function(r){ return r.text(); }).then(function(md){ return { post: post, md: md }; });
                 })
@@ -101,6 +97,19 @@
                     var html = marked.parse(payload.md || '');
                     html = stripFirstH1(html);
                     document.getElementById('post-content').innerHTML = html;
+
+                    // Now render meta with reading time estimated from full markdown content
+                    var titleMap = {
+                        'favourite-paper': 'Favourite paper',
+                        'tool': 'Tool',
+                        'economic': 'Economic',
+                        'tip': 'Tip',
+                        'econometric': 'Econometric'
+                    };
+                    var topic = payload.post.topic ? '<span class="topic-badge">' + escapeHTML(titleMap[payload.post.topic] || payload.post.topic) + '</span>' : '';
+                    var reading = estimateReadingTime(payload.md || '');
+                    var meta = topic + escapeHTML(formatDate(payload.post.date)) + (reading ? ' <span class="dot"></span> ' + reading : '');
+                    document.getElementById('post-meta').innerHTML = meta;
                 })
                 .catch(function(){
                     document.getElementById('post-title').textContent = 'Failed to load';

@@ -593,3 +593,50 @@ body {
     text-decoration: none;
     background: #f0f0f0;
 }
+
+/* Collapsible lectures inside blog post content */
+.post-content details {
+    margin: 0 0 14px 0;
+}
+
+.post-content summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Hide default disclosure marker (Chrome/Safari/Edge) */
+.post-content summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Hide default marker (Firefox/standard) */
+.post-content summary::marker {
+    content: '';
+}
+
+/* Make the heading inline and non-breaking into a new block line */
+.post-content summary h1,
+.post-content summary h2,
+.post-content summary h3,
+.post-content summary h4,
+.post-content summary h5,
+.post-content summary h6 {
+    display: inline;
+    margin: 0;
+}
+
+/* Subtle affordance on hover */
+.post-content summary:hover h1,
+.post-content summary:hover h2,
+.post-content summary:hover h3,
+.post-content summary:hover h4,
+.post-content summary:hover h5,
+.post-content summary:hover h6 {
+    text-decoration: underline;
+}
+
+/* Spacing between title and revealed content */
+.post-content details[open] > summary + * {
+    margin-top: 8px;
+}
