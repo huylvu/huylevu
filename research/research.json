@@ -1,0 +1,127 @@
+{
+  "selected_papers": [
+    {
+      "title": "Measuring the impact of COVID-19 and government policy responses on trade flow: the case of ASEAN countries",
+      "url": "https://www.emerald.com/jed/article-pdf/doi/10.1108/JED-08-2024-0302/10190713/jed-08-2024-0302en.pdf",
+      "coauthors": [
+        { "name": "Tuong Vy Phan", "url": "https://ideas.repec.org/e/pph171.html" },
+        { "name": "Quoc Viet Nguyen" }
+      ],
+      "journal": "Journal of Economics and Development",
+      "volume": "27 (3): 246–263",
+      "date": "September 2025",
+      "abstract": "This paper aims to quantify the impact of the COVID-19 pandemic on bilateral trade flows among 10 ASEAN countries from January 2020 to December 2022. It also evaluates the effectiveness of government policy responses and the moderating role of regional trade agreements (RTAs) in alleviating trade disruption"
+    },
+    {
+      "title": "Firm performance and industrial accumulation: The role of Industrial Parks",
+      "url": "https://so05.tci-thaijo.org/index.php/TER/article/view/274564/188684",
+      "coauthors": [
+        { "name": "Tham Do Thi Hong" },
+        { "name": "Quoc Viet Nguyen" }
+      ],
+      "journal": "Thailand and The World Economy",
+      "volume": "44 (1): 216-233",
+      "date": "January 2026",
+      "abstract": "This research examines the impact of industrial agglomeration on the productivity of SMEs in Vietnam, using FE regression for panel data and the PSM method. The study utilizes data from the General Statistics Office of Vietnam (2016–2020) and the OECD's TiVA database. The findings highlight the positive effects of industrial parks on firm performance, particularly for medium-sized enterprises, export-oriented firms, and those integrated into global value chains. SMEs with strong international linkages benefit from improved access to modern production technologies, with FDI capital firms exhibiting the highest productivity gains. Furthermore, the performance of industrial parks exhibits significant geographical variation, with the Southern region demonstrating superior efficiency due to the concentration of large industrial clusters and advanced facilities. High-tech zones have emerged as key drivers of regional productivity, fostering industrialization and technological innovation. Policymakers should prioritize the expansion and modernization of industrial zones, promote trade liberalization, and support SMEs through targeted incentives while strengthening FDI linkages to drive sustainable industrial development."
+    }
+  ],
+  "working_papers": [
+    {
+      "title": "Does global value chain participation improve technical efficiency of SMEs? Evidence from Vietnam",
+      "url": "https://hal.science/hal-04528712/",
+      "coauthors": [
+        { "name": "Kien Ngoc Do" },
+        { "name": "Huong Giang Nguyen", "url": "https://www.linkedin.com/in/giangnh2001/?originalSubdomain=vn" },
+        { "name": "Nguyen Kim Phuong Thuy" }
+      ],
+      "journal": "Part of Bachelor Thesis",
+      "abstract": "This study disentangles the relationship between GVC participation and the technical efficiency of SMEs in Vietnam. We combine panel data obtained from the GSO Enterprise Census survey of SMEs in Vietnam including 567,866 enterprises observations from 2015 to 2018. Regarding global value chain participation (GVC), TiVA databases by OECD are used to track GVC integration at sectoral level. We employ Stochastic frontier analysis (SFA) to gauge the relationship between a firm's technical efficiency and GVC participation in two modes of participation: backward integration and forward integration. The findings show the positive impacts of backward participation in rising technical efficiency levels. However, SMEs in sectors with deeper forward participation tend to have low technical efficiency. We find the heterogeneity in firm efficiency regarding firm-specific factors and location."
+    },
+    {
+      "title": "Superstar ESG firm in Vietnam: Does it really matter?",
+      "url": "https://www.depocenwp.org/upload/pubs/2025/wp194_superstar_esg.pdf",
+      "coauthors": [
+        { "name": "Vy Tuong Phan", "url": "https://ideas.repec.org/e/pph171.html" }
+      ],
+      "journal": "DEPOCEN Working Paper Series",
+      "volume": "No. 194, 2025/03",
+      "date": "November 2025",
+      "abstract": "Environmental, Social, and Governance (ESG) criteria have become increasingly important to the strategic development of enterprises, yet evidence on their tangible impacts—particularly in emerging economies—remains limited. This study examines the causal effects of ESG implementation among Vietnam's top 20 ESG leading firms between 2016 and 2022 and investigates whether these \"superstar\" firms generate spillover effects on nearby businesses. Using firm-level data from the Vietnam Enterprise Survey and applying propensity score matching (PSM), we find that ESG adoption significantly improves productivity, technical efficiency, and revenue among leading firms. Moreover, positive spillovers extend to geographically proximate firms across sectors, contributing to higher household incomes at the district level. However, these socioeconomic gains come with an unintended consequence: districts benefiting from ESG spillovers also experience a substantial rise in CO2 emissions. This highlights a central trade-off—ESG-driven growth may stimulate economic improvements while simultaneously intensifying environmental pressures. Our findings suggest that ESG adoption matters, but its broader impacts depend critically on whether complementary environmental policies are in place to prevent economic benefits from being offset by increased ecological costs."
+    },
+    {
+      "title": "Trends and Determinants of Calorie and Nutrient Consumption in Vietnam's Households",
+      "coauthors": [
+        { "name": "Vu Hoang Linh", "url": "https://www.linkedin.com/in/linh-vu-1109a93/" },
+        { "name": "Ngoc Anh Nguyen", "url": "https://sites.google.com/depocen.org/anhnguyen" }
+      ],
+      "journal": "Rejected and ReSubmitted",
+      "abstract": "A pooled cross-sectional study using five waves of the Vietnam Household Living Standards Survey. Calorie intake and macronutrient shares were linked to household food expenditure. Income elasticities for total calories, protein, fat, and carbohydrates were estimated using regression models with demographic and regional controls. Trends were compared across waves."
+    }
+  ],
+  "work_in_progress": [
+    {
+      "title": "How does climate change affect health expenditure? A natural regression discontinuity design at Bach Ma mountain",
+      "coauthors": [
+        { "name": "Thanh Le" },
+        { "name": "Cam Anh Pham" }
+      ],
+      "note": "Draft available upon request",
+      "abstract": "This study examines the impact of climate change on human health in Vietnam, focusing on healthcare and agricultural expenditures. Employing a natural regression discontinuity design (RDD) with a non-parametric approach, the research identifies the causal effects of rising temperatures on health-related costs. To ensure robustness, the analysis is further supported by the use of instrumental variable (IV) and Fuzzy RD designs. The findings reveal that a 1-degree Celsius increase in average temperature leads to an 80% rise in healthcare expenditure, an 84% increase in agricultural expenditure, and an 11% rise in medical treatment costs. These results highlight the substantial economic burden posed by climate change, particularly on public health systems and agriculture. By establishing a clear causal link between climate change and healthcare expenditures, this research provides valuable insights for policymakers and public health officials. The findings can inform the development of effective adaptation strategies, heatwave management plans, and public interventions to mitigate the health impacts of climate change in Vietnam."
+    },
+    {
+      "title": "The affordability of tobacco products in Viet Nam: Findings from increased tobacco taxes",
+      "coauthors": [
+        { "name": "Anh Ngoc Nguyen", "url": "https://sites.google.com/depocen.org/anhnguyen" }
+      ],
+      "note": "Draft available upon request",
+      "abstract": "This paper aims to examine the trend in the affordability of tobacco products in Viet Nam from 2018 to 2020, during which the government implemented an increase of five percentage points in the tobacco tax across all tobacco products. Analyzing three waves of data from the International Tobacco Control Survey in Viet Nam, we measure the affordability of tobacco products at the individual level using two different methods: the ratio of the self-reported price or retailer-reported price of tobacco to self-reported income or expenditure. A robustness check with instrumental variables is also conducted using data from the Viet Nam Household Living Standards Survey to validate average income and expenditure levels. The findings show that, in 2019, individual incomes grew substantially faster than tobacco prices following the tax increase, indicating that tobacco products remained relatively affordable. Our research outcomes highlight an urgent need for tax policies to align with income growth in order to effectively reduce tobacco consumption in Viet Nam."
+    },
+    {
+      "title": "Special Economic Zones, Air Pollution and Development: 20 Years of Evidence from Vietnam",
+      "coauthors": [
+        { "name": "Tuong Vy Phan", "url": "https://ideas.repec.org/e/pph171.html" }
+      ]
+    }
+  ],
+  "books": [
+    {
+      "title": "Step by step practice quantitative methods in social science research (Vietnamese)",
+      "url": "https://iper.org.vn/tung-buoc-nhap-mon-nghien-cuu-dinh-luong-trong-khoa-hoc-xa-hoi/?fbclid=IwY2xjawHgVrpleHRuA2FlbQIxMAABHa6F89lOrPrL6ttiGWy61X8z5VlsBT-hDcrzjIUt9oHilFVG-pKhTq2CUQ_aem_buxMo8Ym0baFn8OR_dPpAw",
+      "description": "This micro learning book will support introduction to econometrics for undergraduate students in Vietnam"
+    },
+    {
+      "title": "A Practical Guide: Trade Policy Analysis (Vietnamese)",
+      "description": "Vietnamese Translation from <a href=\"https://www.wto.org/english/res_e/publications_e/wto_unctad12_e.pdf\">\"A Practical Guide to Trade Policy Analysis\"</a>"
+    }
+  ],
+  "projects": [
+    {
+      "organization": "Development and Policies Research Center - DEPOCEN",
+      "org_url": "https://depocen.org/en/",
+      "items": [
+        { "year": "2024-2028", "title": "Disability Project 5 rounds - Team Member - CRS, USAID" },
+        { "year": "2025", "title": "Tobacco Price Survey - Team Member - Economics for Health" },
+        { "year": "2024", "title": "Viet Nam Multi Sector Assessment of the Typhoon Yagi Macroeconomic Impact - Team Leader - UNDP" },
+        { "year": "2024", "title": "Evaluating open data portals in Vietnam - Team Member - WorldBank" },
+        { "year": "2024", "title": "Role of Access to Finance in SME Development in Viet Nam - Team Member - ADB" }
+      ]
+    },
+    {
+      "organization": "Mekong Development Research Institute - MDRI",
+      "org_url": "https://mdri.org.vn/",
+      "items": [
+        { "year": "2023", "title": "Weather insurance for agriculture - Collaborator" }
+      ]
+    },
+    {
+      "organization": "Association of Vietnamese Scientists and Experts - AVSE",
+      "org_url": "https://avseglobal.org/",
+      "items": [
+        { "year": "2024", "title": "Comprehensive Development Strategy of the Saigon River Corridor in Ho Chi Minh City - Team Member" },
+        { "year": "2024", "title": "Vietnam Global Leaders Forum 2024 - Organizing committee" },
+        { "year": "2024", "title": "The 3rd Vietnam Symposium in Supply Chain Management (VSSCM-2024) - Coordinator" },
+        { "year": "2023", "title": "The 2nd Vietnam Symposium in Supply Chain Management (VSSCM-2023) - Coordinator" }
+      ]
+    }
+  ]
+}
